@@ -1,0 +1,32 @@
+<div class="background">
+</div>
+
+<div class="container">
+  <h1 style="text-align: center;">
+    Complaint List
+  </h1>
+  <table class="table table-light">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let hero of complaint">
+      <td scope="col">#</td>
+      <td scope="col">{{hero.custmer}}</td>
+      <td scope="col">{{hero.statusName}}</td>
+      <td>
+        <select name="car" (change)="submit(hero.status,hero.id)" [(ngModel)]="hero.status"
+          [disabled]="!IsAdmin">
+          <option value="1">Pending</option>
+          <option value="2">Closed</option>
+          <option value="3">Rejected</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+
+  <button type="button" class="btn btn-primary" [routerLink]="['/complain-entry']" >New Complain</button>
+</div>
